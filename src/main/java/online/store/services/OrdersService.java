@@ -36,13 +36,13 @@ public class OrdersService {
 	
 	
 	public Object saveOrder(OrderRequestDTO order) throws OrderValidationException, CreditCardValidationException {
-		if(order.getFirstName().isBlank()) {
+		if(order.getFirstName().isEmpty()) {
 			throw new OrderValidationException("First name is missing");
 		}
-		if(order.getLastName().isBlank()) {
+		if(order.getLastName().isEmpty()) {
 			throw new OrderValidationException("Last name is missing");
 		}
-		if(order.getCreditCard().isBlank()) {
+		if(order.getCreditCard().isEmpty()) {
 			throw new CreditCardValidationException("Credit card information is missing");
 		}
 		List<Order> ordersToSave = new ArrayList<Order>();
